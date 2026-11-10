@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Formworks</string>
+    <string name="title_activity_main">Formworks</string>
+    <string name="package_name">studio.formworks.assembly</string>
+    <string name="custom_url_scheme">studio.formworks.assembly</string>
+</resources>

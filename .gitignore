@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+.cache/
+*.tsbuildinfo
+.env.local
+artifacts/
+android/.gradle/
+android/local.properties
+android/**/build/
+
+# Native signing credentials remain outside Git
+*.jks
+*.keystore

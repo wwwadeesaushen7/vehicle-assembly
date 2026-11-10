@@ -1,0 +1,69 @@
+{
+  "name": "formworks-vehicle-assembly",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An original modular vehicle assembly sandbox",
+  "author": "Formworks contributors",
+  "license": "MIT",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "test:browser": "node scripts/browser-test.mjs",
+    "typecheck": "tsc --noEmit",
+    "desktop": "npm run build && electron .",
+    "dist:windows": "npm run build && electron-builder --win nsis",
+    "android:add": "cap add android",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "test:input": "node scripts/input-regression.mjs",
+    "test:offline": "node scripts/offline-test.mjs",
+    "test:quality": "node scripts/quality-test.mjs"
+  },
+  "dependencies": {
+    "@babylonjs/core": "9.35.0",
+    "@babylonjs/loaders": "9.35.0",
+    "@capacitor/android": "8.6.0",
+    "@capacitor/core": "8.6.0",
+    "lucide-react": "0.468.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "5.1.0",
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0",
+    "playwright": "1.56.1",
+    "typescript": "5.9.3",
+    "vite": "7.2.2",
+    "vite-plugin-pwa": "1.1.0",
+    "vitest": "3.2.4"
+  },
+  "build": {
+    "appId": "studio.formworks.assembly",
+    "productName": "Formworks",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
